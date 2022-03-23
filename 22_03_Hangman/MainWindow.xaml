@@ -45,6 +45,24 @@
         </StackPanel>
         <StackPanel Grid.Column="1" Background="#EEE">
             <Label>*Hangman here</Label>
+            <Canvas>
+                <Canvas.Resources>
+                    <vm:VisibleConverter x:Key="VisibleConverter"></vm:VisibleConverter>
+                </Canvas.Resources>
+                <Line X1="100" Y1="100" X2="150" Y2="100" Stroke="Black" Visibility="{Binding WrongGuesses, Converter={StaticResource VisibleConverter}, ConverterParameter=1}"/>
+                <Line X1="100" Y1="100" X2="125" Y2="75" Stroke="Black" Visibility="{Binding WrongGuesses, Converter={StaticResource VisibleConverter}, ConverterParameter=2}"/>
+                <Line X1="150" Y1="100" X2="125" Y2="75" Stroke="Black" Visibility="{Binding WrongGuesses, Converter={StaticResource VisibleConverter}, ConverterParameter=3}"/>
+
+                <Line X1="125" Y1="75" X2="125" Y2="50" Stroke="Black" Visibility="{Binding WrongGuesses, Converter={StaticResource VisibleConverter}, ConverterParameter=4}"/>
+                <Line X1="125" Y1="50" X2="75" Y2="50" Stroke="Black" Visibility="{Binding WrongGuesses, Converter={StaticResource VisibleConverter}, ConverterParameter=5}"/>
+                <Line X1="75" Y1="50" X2="75" Y2="60" Stroke="Black" Visibility="{Binding WrongGuesses, Converter={StaticResource VisibleConverter}, ConverterParameter=6}"/>
+
+                <Ellipse Canvas.Left="70" Canvas.Top="60" Width="10" Height="10" Stroke="Black" Visibility="{Binding WrongGuesses, Converter={StaticResource VisibleConverter}, ConverterParameter=7}"></Ellipse>
+                <Line X1="75" Y1="70" X2="75" Y2="80" Stroke="Black" Visibility="{Binding WrongGuesses, Converter={StaticResource VisibleConverter}, ConverterParameter=8}"/>
+
+                <Line X1="75" Y1="80" X2="70" Y2="90" Stroke="Black" Visibility="{Binding WrongGuesses, Converter={StaticResource VisibleConverter}, ConverterParameter=9}"/>
+                <Line X1="75" Y1="80" X2="80" Y2="90" Stroke="Black" Visibility="{Binding WrongGuesses, Converter={StaticResource VisibleConverter}, ConverterParameter=10}"/>
+            </Canvas>
         </StackPanel>
         <StackPanel Grid.Row="1" Background="#FFE8E8E8" Grid.ColumnSpan="2">
             <UniformGrid>
