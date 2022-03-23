@@ -1,0 +1,81 @@
+﻿<Window x:Class="_22_03_Hangman.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_22_03_Hangman"
+        xmlns:vm="clr-namespace:_22_03_Hangman.ViewModels"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <vm:MainModel />
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="271*"/>
+            <ColumnDefinition Width="129*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="59*"/>
+            <RowDefinition Height="40*"/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0, 10">
+                <Label>Hangman Text:</Label>
+                <TextBox Width="100" Height="20" Text="{Binding OriginalText}" IsEnabled="{Binding CanEdit}">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Background" Value="White"></Setter>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding CanEdit}" Value="False">
+                                    <Setter Property="Background" Value="Black" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+            </StackPanel>
+            <Button Content="Start Game" Width="100" Height="25" IsEnabled="{Binding CanEdit}" Command="{Binding StartCommand}"></Button>
+            <Label Content="{Binding GuessText, Mode=OneWay}" HorizontalAlignment="Center" Margin="0, 30"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="Wrong guesses: " HorizontalAlignment="Center"/>
+                <Label Content="{Binding WrongGuesses}" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <Label Content="{Binding WinnerText}" HorizontalAlignment="Center" Foreground="#FF2CDE2F" />
+        </StackPanel>
+        <StackPanel Grid.Column="1" Background="#EEE">
+            <Label>*Hangman here</Label>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Background="#FFE8E8E8" Grid.ColumnSpan="2">
+            <UniformGrid>
+                <Button Height="30" Content="A" Command="{Binding PressCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"></Button>
+                <Button Height="30" Content="B" Command="{Binding PressCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"></Button>
+                <Button Height="30" Content="C" Command="{Binding PressCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"></Button>
+                <Button Height="30" Content="D" Command="{Binding PressCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"></Button>
+                <Button Height="30" Content="E" Command="{Binding PressCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"></Button>
+                <Button Height="30" Content="F" Command="{Binding PressCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"></Button>
+                <Button Height="30" Content="G" Command="{Binding PressCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"></Button>
+                <Button Height="30" Content="H" Command="{Binding PressCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"></Button>
+                <Button Height="30" Content="I" Command="{Binding PressCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"></Button>
+                <Button Height="30" Content="J" Command="{Binding PressCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"></Button>
+                <Button Height="30" Content="K" Command="{Binding PressCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"></Button>
+                <Button Height="30" Content="L" Command="{Binding PressCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"></Button>
+                <Button Height="30" Content="M" Command="{Binding PressCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"></Button>
+                <Button Height="30" Content="N" Command="{Binding PressCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"></Button>
+                <Button Height="30" Content="O" Command="{Binding PressCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"></Button>
+                <Button Height="30" Content="P" Command="{Binding PressCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"></Button>
+                <Button Height="30" Content="Q" Command="{Binding PressCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"></Button>
+                <Button Height="30" Content="R" Command="{Binding PressCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"></Button>
+                <Button Height="30" Content="S" Command="{Binding PressCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"></Button>
+                <Button Height="30" Content="T" Command="{Binding PressCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"></Button>
+                <Button Height="30" Content="U" Command="{Binding PressCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"></Button>
+                <Button Height="30" Content="V" Command="{Binding PressCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"></Button>
+                <Button Height="30" Content="W" Command="{Binding PressCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"></Button>
+                <Button Height="30" Content="X" Command="{Binding PressCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"></Button>
+                <Button Height="30" Content="Y" Command="{Binding PressCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"></Button>
+                <Button Height="30" Content="Z" Command="{Binding PressCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"></Button>
+            </UniformGrid>
+        </StackPanel>
+
+    </Grid>
+</Window>
